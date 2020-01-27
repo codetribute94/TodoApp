@@ -1,25 +1,21 @@
 <template>
   <div id="app">
-    <textarea name="Enter todoapp" id="todotext" cols="30" rows="10"></textarea>
-
-    <h3 class="title">Todo</h3>
-    <div class="todos">
-       <p class="todolist"></p>
-    </div>
-
+   <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" />
+   <AddTodo v-on:add-todo="addTodo" />
   </div>
 </template>
 
 <script>
 // eslint-disable-next-line no-unused-vars
-import Todos from './components/DisplayTodos'
+import Todos from './components/DisplayTodos';
+import AddTodo from './components/AddTodo';
 
 
 export default {
   name: 'app',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    Todos
+    Todos,
+    AddTodo
   },
   data(){
     return {
@@ -29,22 +25,34 @@ export default {
         title: 'todo1',
         complete: false
         },
+
         {
           id: 2,
           title:'todo2',
           complete: false
         },
+
         {
           id: 3,
           title: 'todo3',
           complete: false
         },
+
         {
           id: 4,
           title: 'todo4',
           complete: false
-        }
+        },
       ]
+    }
+  },
+  methods: {
+    addTodo(newTodoObj){
+      this.todos = [...this.todos, newTodoObj];
+    },
+    // eslint-disable-next-line no-unused-vars
+    deleteTodo(todoId) {
+      this.todos = this.todos.filter(todo => todo.id !== todoId);
     }
   }
 }
