@@ -1,6 +1,6 @@
 <template>
     <div>
-        <form @submit="addTodo">
+        <form @submit="addTodo" class="formInput">
             <input type="text" v-model="title" name="title">
             <button type="submit">Add</button>
         </form>
@@ -34,6 +34,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+
 
 </style>

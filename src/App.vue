@@ -1,7 +1,8 @@
 <template>
-  <div id="app">
-   <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" />
+  <div id="app" >
+<div class="body">   <Todos v-bind:todos="todos" v-on:delete-todo="deleteTodo" />
    <AddTodo v-on:add-todo="addTodo" />
+   </div>
   </div>
 </template>
 
@@ -59,4 +60,14 @@ export default {
 </script>
 
 <style>
+ #app {
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-top: 15px;
+    padding-left: 150px;
+    
+  }
+
+
+
 </style>
