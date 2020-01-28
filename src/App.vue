@@ -10,6 +10,7 @@
 // eslint-disable-next-line no-unused-vars
 import Todos from './components/DisplayTodos';
 import AddTodo from './components/AddTodo';
+import * as utils from "../server/utils";
 
 
 export default {
@@ -55,6 +56,13 @@ export default {
     deleteTodo(todoId) {
       this.todos = this.todos.filter(todo => todo.id !== todoId);
     }
+  },
+  mounted(){
+    fetch('http://localhost:5553',{
+      method: utils.METHODS.post,
+      mode: 'cors',
+      body: "send to DB",
+    })
   }
 }
 </script>
